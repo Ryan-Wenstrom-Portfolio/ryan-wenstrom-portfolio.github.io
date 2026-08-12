@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import AthleticsSection from '../components/AthleticsSection.astro';
 ---
 
 <BaseLayout
@@ -10,14 +13,17 @@ import SiteHeader from '../components/SiteHeader.astro';
   <SiteHeader />
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow">DATA & ANALYTICS PORTFOLIO</p>
+        <p class="eyebrow">
+          DATA &amp; ANALYTICS PORTFOLIO
+        </p>
 
         <h1>Ryan Wenstrom</h1>
 
         <p class="positioning">
-          Finance-trained data & analytics professional
+          Finance-trained data &amp; analytics professional
         </p>
 
         <p class="intro">
@@ -27,16 +33,25 @@ import SiteHeader from '../components/SiteHeader.astro';
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#projects">
+          <a
+            class="button button-primary"
+            href="#projects"
+          >
             View Projects
           </a>
 
-          <a class="button button-secondary" href="#resume">
+          <a
+            class="button button-secondary"
+            href="#resume"
+          >
             Resume
           </a>
         </div>
 
-        <div class="hero-links" aria-label="Professional links">
+        <div
+          class="hero-links"
+          aria-label="Professional links"
+        >
           <a
             href="https://github.com/Ryan-Wenstrom-Portfolio"
             target="_blank"
@@ -45,22 +60,297 @@ import SiteHeader from '../components/SiteHeader.astro';
             GitHub
           </a>
 
-          <span aria-hidden="true">&middot;</span>
+          <span aria-hidden="true">
+            &middot;
+          </span>
+
+          <a
+            href="https://www.linkedin.com/in/ryanwenstrom/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <span aria-hidden="true">
+            &middot;
+          </span>
 
           <a href="mailto:ryanmwenstrom@gmail.com">
             ryanmwenstrom@gmail.com
           </a>
         </div>
 
-        <div class="credibility" aria-label="Background highlights">
+        <div
+          class="credibility"
+          aria-label="Background highlights"
+        >
           <span>UC Berkeley MIDS</span>
-          <span class="divider" aria-hidden="true"></span>
+
+          <span
+            class="divider"
+            aria-hidden="true"
+          ></span>
+
           <span>Cal Poly Finance</span>
-          <span class="divider" aria-hidden="true"></span>
+
+          <span
+            class="divider"
+            aria-hidden="true"
+          ></span>
+
           <span>Analytics + Finance</span>
         </div>
       </div>
     </section>
+
+    <!-- SELECTED WORK -->
+    <section
+      class="projects-section"
+      id="projects"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">
+            SELECTED WORK
+          </p>
+
+          <h2>
+            Four projects. Four different analytical problems.
+          </h2>
+
+          <p>
+            Large-scale data processing, relational analytics and data
+            engineering, interactive visualization, and graph analysis - all
+            focused on turning difficult data into something understandable and
+            useful.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <ProjectCard
+            eyebrow="Mortgage Analytics"
+            title="Mortgage Approval Analytics"
+            description="Processed 3.8 million public mortgage records into a validated analytical dataset and three interactive Tableau dashboards."
+            image="/images/projects/mortgage-market-overview.png"
+            imageAlt="Mortgage Market Overview dashboard showing mortgage approval analytics across four U.S. states"
+            tools="Python · DuckDB · SQL · Tableau"
+            metrics={[
+              {
+                value: '3.8M',
+                label: 'raw records'
+              },
+              {
+                value: '4',
+                label: 'states analyzed'
+              },
+              {
+                value: '3',
+                label: 'dashboards'
+              }
+            ]}
+            externalLinks={[
+              {
+                label: 'Open Tableau',
+                href: 'https://public.tableau.com/views/MortgageApprovalAnalytics2017HMDA/MortgageMarketOverview?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link'
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/Ryan-Wenstrom-Portfolio/mortgage-approval-analytics'
+              }
+            ]}
+          />
+
+          <ProjectCard
+            eyebrow="SQL & Data Engineering"
+            title="SQL Analytics & Data Engineering"
+            description="Built two PostgreSQL case studies spanning large-scale retail analysis and an external-data pipeline from transformation and validation through business reporting."
+            image="/images/projects/sql-retail-performance.png"
+            imageAlt="Retail Performance Analytics dashboard showing revenue, store performance, product demand, and time-based retail trends"
+            tools="PostgreSQL · SQL · Python · Tableau"
+            metrics={[
+              {
+                value: '1.54M',
+                label: 'transactions'
+              },
+              {
+                value: '$98.7M',
+                label: 'revenue analyzed'
+              },
+              {
+                value: '2',
+                label: 'case studies'
+              }
+            ]}
+            externalLinks={[
+              {
+                label: 'Open Tableau',
+                href: 'https://public.tableau.com/app/profile/ryan.wenstrom2339/viz/SQLAnalyticsDataEngineering/RetailPerformanceAnalytics'
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/Ryan-Wenstrom-Portfolio/sql_analytics'
+              }
+            ]}
+          />
+
+          <ProjectCard
+            eyebrow="Interactive Analytics"
+            title="NBA Player Role Analytics"
+            description="Co-developed an interactive D3 application for comparing player roles, historical similarity, roster composition, and team context beyond traditional box-score summaries."
+            image="/images/projects/nba-role-explorer.png"
+            imageAlt="NBA Player Role Analytics application comparing Jrue Holiday and James Harden across player-role metrics"
+            tools="Python · D3.js · JavaScript · pandas"
+            metrics={[
+              {
+                value: '5,665',
+                label: 'player-team-seasons'
+              },
+              {
+                value: '16',
+                label: 'NBA seasons'
+              },
+              {
+                value: '480',
+                label: 'team-seasons'
+              }
+            ]}
+            externalLinks={[
+              {
+                label: 'Open Live App',
+                href: 'https://ryan-wenstrom-portfolio.github.io/nba-player-role-analytics/'
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/Ryan-Wenstrom-Portfolio/nba-player-role-analytics'
+              }
+            ]}
+          />
+
+          <ProjectCard
+            eyebrow="Graph Analytics"
+            title="Neo4j Stock Network Analysis"
+            description="Modeled historical stock-return correlations as a Neo4j network and tested how centrality conclusions change across methods and network-construction thresholds."
+            image="/images/projects/neo4j-correlation-network.png"
+            imageAlt="NASDAQ stock correlation network showing connected and isolated stocks in the Neo4j graph analysis"
+            tools="Neo4j · Cypher · GDS · Python"
+            metrics={[
+              {
+                value: '85',
+                label: 'stocks'
+              },
+              {
+                value: '197',
+                label: 'relationships'
+              },
+              {
+                value: '4',
+                label: 'thresholds tested'
+              }
+            ]}
+            externalLinks={[
+              {
+                label: 'Open Interactive Network',
+                href: '/interactive/neo4j-stock-network.html'
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/Ryan-Wenstrom-Portfolio/neo4j-stock-network-analysis'
+              }
+            ]}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="capabilities-section">
+      <div class="container">
+        <div class="capabilities-heading">
+          <p class="section-eyebrow">
+            CAPABILITIES
+          </p>
+
+          <h2>
+            From raw data to useful decisions.
+          </h2>
+
+          <p>
+            My work sits at the intersection of data, analytical reasoning,
+            business context, and communication.
+          </p>
+        </div>
+
+        <div class="capabilities-grid">
+          <article class="capability">
+            <p class="capability-number">
+              01
+            </p>
+
+            <h3>
+              Build reliable data
+            </h3>
+
+            <p>
+              Transform, validate, reconcile, and structure raw or external
+              data into trustworthy analytical datasets.
+            </p>
+          </article>
+
+          <article class="capability">
+            <p class="capability-number">
+              02
+            </p>
+
+            <h3>
+              Analyze business performance
+            </h3>
+
+            <p>
+              Use SQL, Python, and business context to identify patterns,
+              compare performance, and answer decision-relevant questions.
+            </p>
+          </article>
+
+          <article class="capability">
+            <p class="capability-number">
+              03
+            </p>
+
+            <h3>
+              Build interactive analytics
+            </h3>
+
+            <p>
+              Turn analytical results into dashboards and interactive
+              applications that make complex information easier to explore.
+            </p>
+          </article>
+
+          <article class="capability">
+            <p class="capability-number">
+              04
+            </p>
+
+            <h3>
+              Model complex relationships
+            </h3>
+
+            <p>
+              Use graph structures and network analysis to investigate
+              relationships that are difficult to understand in traditional
+              tables.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <ExperienceSection />
+
+    <!-- LEADERSHIP & ATHLETICS -->
+    <AthleticsSection />
   </main>
 </BaseLayout>
 
@@ -135,7 +425,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 
   .button-primary {
     background: var(--color-accent);
-    color: white;
+    color: #ffffff;
   }
 
   .button-primary:hover,
@@ -151,7 +441,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 
   .button-secondary:hover,
   .button-secondary:focus-visible {
-    border-color: #B8C4CC;
+    border-color: #b8c4cc;
   }
 
   .hero-links {
@@ -193,6 +483,176 @@ import SiteHeader from '../components/SiteHeader.astro';
     background: var(--color-border);
   }
 
+  .section-eyebrow {
+    margin: 0 0 14px;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+  }
+
+  .projects-section {
+    padding: 110px 0 130px;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-heading {
+    max-width: 780px;
+    margin-bottom: 50px;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    font-size: clamp(2.35rem, 4vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
+
+  .section-heading > p:last-child {
+    margin: 22px 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .capabilities-section {
+    padding: 118px 0 126px;
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .capabilities-heading {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(280px, 0.65fr);
+    column-gap: 80px;
+    align-items: end;
+    margin-bottom: 62px;
+  }
+
+  .capabilities-heading .section-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .capabilities-heading h2 {
+    margin: 0;
+    max-width: 700px;
+    font-size: clamp(2.35rem, 4vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+  }
+
+  .capabilities-heading > p:last-child {
+    margin: 0;
+    max-width: 460px;
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .capability {
+    min-width: 0;
+    padding: 34px 30px 38px 0;
+  }
+
+  .capability + .capability {
+    padding-left: 30px;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .capability-number {
+    margin: 0 0 28px;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+  }
+
+  .capability h3 {
+    margin: 0;
+    max-width: 240px;
+    font-size: 1.32rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .capability > p:last-child {
+    margin: 17px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1000px) {
+    .capabilities-heading {
+      grid-template-columns: 1fr;
+      row-gap: 20px;
+    }
+
+    .capabilities-heading > p:last-child {
+      max-width: 700px;
+    }
+
+    .capabilities-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .capability {
+      padding: 30px;
+    }
+
+    .capability + .capability {
+      padding-left: 30px;
+    }
+
+    .capability:nth-child(3) {
+      border-left: 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .capability:nth-child(4) {
+      border-top: 1px solid var(--color-border);
+    }
+  }
+
+  @media (max-width: 800px) {
+    .projects-section {
+      padding: 80px 0 90px;
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+      margin-bottom: 36px;
+    }
+
+    .capabilities-section {
+      padding: 82px 0 92px;
+    }
+
+    .capabilities-heading {
+      margin-bottom: 42px;
+    }
+  }
+
   @media (max-width: 760px) {
     .hero {
       padding: 76px 0 72px;
@@ -217,6 +677,26 @@ import SiteHeader from '../components/SiteHeader.astro';
 
     .credibility {
       margin-top: 44px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .capability,
+    .capability + .capability {
+      padding: 28px 0;
+      border-left: 0;
+    }
+
+    .capability + .capability {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .capability h3 {
+      max-width: none;
     }
   }
 

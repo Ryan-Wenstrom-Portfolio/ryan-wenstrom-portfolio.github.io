@@ -1,0 +1,261 @@
+<section
+  class="experience-section"
+  id="experience"
+>
+  <div class="container">
+    <div class="experience-heading">
+      <p class="section-eyebrow">
+        PROFESSIONAL EXPERIENCE
+      </p>
+
+      <div class="experience-heading-grid">
+        <h2>
+          Experience across investment, analytics, and property credit.
+        </h2>
+
+        <p>
+          Each role reinforced the same principle: useful analysis starts with
+          understanding the business decision and the data behind it.
+        </p>
+      </div>
+    </div>
+
+    <div class="experience-list">
+      <!-- DIVCOWEST -->
+      <article class="experience-item">
+        <div class="experience-meta">
+          <span class="experience-year">
+            2025
+          </span>
+
+          <span class="experience-location">
+            San Francisco
+          </span>
+        </div>
+
+        <div class="experience-main">
+          <p class="experience-company">
+            DivcoWest
+          </p>
+
+          <h3>
+            Investments Intern
+          </h3>
+
+          <p class="experience-description">
+            Structured property, market, leasing, and scenario information
+            across $250M+ in real estate investment case studies and built DCF
+            and sensitivity analyses to evaluate return potential and downside
+            assumptions.
+          </p>
+        </div>
+      </article>
+
+      <!-- LPL -->
+      <article class="experience-item">
+        <div class="experience-meta">
+          <span class="experience-year">
+            2024
+          </span>
+
+          <span class="experience-location">
+            San Diego
+          </span>
+        </div>
+
+        <div class="experience-main">
+          <p class="experience-company">
+            LPL Financial
+          </p>
+
+          <h3>
+            Strategic Accounts Intern
+          </h3>
+
+          <p class="experience-description">
+            Built automated Power BI reporting for 64 advisory firms
+            representing $401B in AUM and standardized source data to improve
+            account-performance visibility and reporting.
+          </p>
+        </div>
+      </article>
+
+      <!-- AURA -->
+      <article class="experience-item">
+        <div class="experience-meta">
+          <span class="experience-year">
+            2023
+          </span>
+
+          <span class="experience-location">
+            Sydney
+          </span>
+        </div>
+
+        <div class="experience-main">
+          <p class="experience-company">
+            Aura Group
+          </p>
+
+          <h3>
+            Property Credit Intern
+          </h3>
+
+          <p class="experience-description">
+            Built forecasting and scenario-analysis models across a $10M
+            property credit portfolio and improved data reliability supporting
+            portfolio planning and credit analysis.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    padding: 120px 0 128px;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+  }
+
+  .experience-heading {
+    margin-bottom: 62px;
+  }
+
+  .experience-heading-grid {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(280px, 0.65fr);
+    gap: 80px;
+    align-items: end;
+  }
+
+  .experience-heading h2 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(2.35rem, 4vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+  }
+
+  .experience-heading-grid > p {
+    margin: 0;
+    max-width: 470px;
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .experience-list {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 70px;
+    padding: 42px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .experience-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-top: 5px;
+  }
+
+  .experience-year {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 750;
+  }
+
+  .experience-location {
+    color: var(--color-text-muted);
+    font-size: 0.84rem;
+  }
+
+  .experience-main {
+    max-width: 900px;
+  }
+
+  .experience-company {
+    margin: 0 0 8px;
+    color: var(--color-accent);
+    font-size: 0.77rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .experience-main h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  .experience-description {
+    max-width: 850px;
+    margin: 17px 0 0;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  @media (max-width: 900px) {
+    .experience-heading-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .experience-heading-grid > p {
+      max-width: 700px;
+    }
+
+    .experience-item {
+      grid-template-columns: 145px minmax(0, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .experience-section {
+      padding: 82px 0 92px;
+    }
+
+    .experience-heading {
+      margin-bottom: 42px;
+    }
+
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 32px 0;
+    }
+
+    .experience-meta {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      padding: 0;
+    }
+
+    .experience-location::before {
+      content: "·";
+      margin-right: 10px;
+    }
+  }
+</style>
