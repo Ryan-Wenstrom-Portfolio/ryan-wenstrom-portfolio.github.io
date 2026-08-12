@@ -1,19 +1,243 @@
 ---
-const title = "Ryan Wenstrom | Data & Analytics Portfolio";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main>
-      <h1>Ryan Wenstrom</h1>
-      <p>Data & Analytics Portfolio</p>
-      <p>Astro foundation is working.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Ryan Wenstrom | Data & Analytics Portfolio"
+  description="Finance-trained data and analytics professional combining business judgment with Python, SQL, data engineering, and visualization."
+>
+  <SiteHeader />
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">DATA & ANALYTICS PORTFOLIO</p>
+
+        <h1>Ryan Wenstrom</h1>
+
+        <p class="positioning">
+          Finance-trained data & analytics professional
+        </p>
+
+        <p class="intro">
+          UC Berkeley MIDS candidate combining business judgment with Python,
+          SQL, data engineering, and visualization to build reliable analytical
+          systems and turn complex data into clear decision-support tools.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">
+            View Projects
+          </a>
+
+          <a class="button button-secondary" href="#resume">
+            Resume
+          </a>
+        </div>
+
+        <div class="hero-links" aria-label="Professional links">
+          <a
+            href="https://github.com/Ryan-Wenstrom-Portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <span aria-hidden="true">Â·</span>
+
+          <a href="mailto:ryanmwenstrom@gmail.com">
+            ryanmwenstrom@gmail.com
+          </a>
+        </div>
+
+        <div class="credibility" aria-label="Background highlights">
+          <span>UC Berkeley MIDS</span>
+          <span class="divider" aria-hidden="true"></span>
+          <span>Cal Poly Finance</span>
+          <span class="divider" aria-hidden="true"></span>
+          <span>Analytics + Finance</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 118px 0 104px;
+  }
+
+  .hero-inner {
+    max-width: var(--max-width);
+  }
+
+  .eyebrow {
+    margin: 0 0 20px;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(3.75rem, 7vw, 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .positioning {
+    max-width: 900px;
+    margin: 26px 0 0;
+    font-size: clamp(1.9rem, 3.4vw, 2.55rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .intro {
+    max-width: 790px;
+    margin: 28px 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 160ms ease,
+      background 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .button-primary:hover,
+  .button-primary:focus-visible {
+    background: var(--color-accent-dark);
+  }
+
+  .button-secondary {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .button-secondary:hover,
+  .button-secondary:focus-visible {
+    border-color: #B8C4CC;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    margin-top: 24px;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+
+  .hero-links a {
+    text-decoration: none;
+  }
+
+  .hero-links a:hover,
+  .hero-links a:focus-visible {
+    color: var(--color-accent-dark);
+  }
+
+  .credibility {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-top: 54px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.83rem;
+    font-weight: 650;
+    letter-spacing: 0.025em;
+  }
+
+  .divider {
+    width: 1px;
+    height: 14px;
+    background: var(--color-border);
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      padding: 76px 0 72px;
+    }
+
+    h1 {
+      font-size: clamp(3.25rem, 15vw, 4.25rem);
+    }
+
+    .positioning {
+      font-size: clamp(1.65rem, 8vw, 2.1rem);
+    }
+
+    .intro {
+      margin-top: 24px;
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+    }
+
+    .credibility {
+      margin-top: 44px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    .credibility {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

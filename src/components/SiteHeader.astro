@@ -1,0 +1,78 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Ryan Wenstrom home">
+      Ryan Wenstrom
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a
+        href="https://www.linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 248, 250, 0.94);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-inner {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .brand {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .desktop-nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition:
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a:focus-visible {
+    color: var(--color-accent-dark);
+  }
+
+  @media (max-width: 760px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .header-inner {
+      min-height: 64px;
+    }
+  }
+</style>
