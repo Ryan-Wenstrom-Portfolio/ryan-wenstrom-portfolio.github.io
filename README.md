@@ -1,40 +1,74 @@
-# Portfolio Audit Fixes v1.1
+﻿# Ryan Wenstrom — Data & Analytics Portfolio
 
-This patch contains the immediate corrections from the full-site audit:
+Recruiter-facing portfolio showcasing data analytics, data engineering, interactive visualization, and graph analytics work.
 
-- makes Lean Six Sigma Green Belt a direct hot link to the certificate image
-- identifies the certificate as MoreSteam, Dec 2024
-- removes the public Finance resume CTA and keeps one clear Resume action
-- replaces the meta/defensive athletics sentence with recruiter-facing copy
-- uses lightweight thumbnails for the All-American proof images while the links
-  still open the full-resolution originals
+## Live Portfolio
 
-## Apply
+https://ryan-wenstrom-portfolio.github.io
 
-Copy the contents of this folder into the root of:
+## Featured Projects
 
-C:\Users\ryanm\GitHub\ryan-wenstrom-portfolio.github.io
+### Mortgage Approval Analytics
 
-Allow replacement of the three Astro component files.
+Large-scale descriptive analysis of 3.8 million public 2017 HMDA records across California, Illinois, Michigan, and Texas.
 
-Then remove the publicly hosted finance resume:
+**Tools:** Python, DuckDB, SQL, Tableau
 
-```powershell
-Remove-Item public\resumes\Ryan_Wenstrom_Finance_Resume.pdf -ErrorAction SilentlyContinue
-```
+https://github.com/Ryan-Wenstrom-Portfolio/mortgage-approval-analytics
 
-Run:
+### SQL Analytics & Data Engineering
 
-```powershell
-npm run build
-npm run dev
-```
+Two PostgreSQL case studies covering large-scale retail analytics and an external-data transformation, validation, reconciliation, and reporting pipeline.
 
-If everything looks correct:
+**Tools:** PostgreSQL, SQL, Python, Tableau
 
-```powershell
-git add .
-git status
-git commit -m "Apply portfolio audit fixes"
-git push origin phase-4-foundation
-```
+https://github.com/Ryan-Wenstrom-Portfolio/sql_analytics
+
+### NBA Player Role Analytics
+
+Interactive application for comparing NBA player roles, historical similarity, roster composition, and team context beyond traditional box-score summaries.
+
+**Tools:** Python, pandas, D3.js, JavaScript
+
+https://github.com/Ryan-Wenstrom-Portfolio/nba-player-role-analytics
+
+### Neo4j Stock Network Analysis
+
+Graph analysis of historical stock-return correlations using centrality measures and network-threshold sensitivity testing.
+
+**Tools:** Neo4j, Cypher, Graph Data Science, Python
+
+https://github.com/Ryan-Wenstrom-Portfolio/neo4j-stock-network-analysis
+
+## Website Stack
+
+- Astro
+- HTML and CSS
+- GitHub Actions
+- GitHub Pages
+
+The site is statically generated and intentionally uses minimal client-side JavaScript.
+
+## Local Development
+
+Install dependencies with `npm install`.
+
+Start the local development server with `npm run dev`.
+
+Create a production build with `npm run build`.
+
+Preview the production build with `npm run preview`.
+
+## Deployment
+
+The production site is automatically built and deployed through GitHub Actions when updates are pushed to `main`.
+
+## Contact
+
+**Ryan Wenstrom**
+
+LinkedIn: https://www.linkedin.com/in/ryanwenstrom/
+
+GitHub: https://github.com/Ryan-Wenstrom-Portfolio
+
+Email: ryanmwenstrom@gmail.com
