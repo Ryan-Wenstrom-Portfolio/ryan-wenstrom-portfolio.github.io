@@ -1,0 +1,80 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Ryan Wenstrom</p>
+
+    <div class="footer-links">
+      <a
+        href="https://www.linkedin.com/in/ryanwenstrom/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/Ryan-Wenstrom-Portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+      <a href="mailto:ryanmwenstrom@gmail.com">
+        Email
+      </a>
+    </div>
+
+    <p class="copyright">© 2026</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 28px 0;
+    background: #0c1721;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .footer-inner p {
+    margin: 0;
+    font-size: 0.84rem;
+  }
+
+  .footer-inner > p:first-child {
+    color: #ffffff;
+    font-weight: 750;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    font-size: 0.84rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover,
+  .footer-links a:focus-visible {
+    color: #ffffff;
+  }
+
+  @media (max-width: 620px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .copyright {
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+</style>

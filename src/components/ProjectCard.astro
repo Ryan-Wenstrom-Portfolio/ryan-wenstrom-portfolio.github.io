@@ -17,6 +17,7 @@ interface Props {
   imageAlt: string;
   tools: string;
   metrics: Metric[];
+  caseStudyHref?: string;
   externalLinks?: ExternalLink[];
 }
 
@@ -28,40 +29,23 @@ const {
   imageAlt,
   tools,
   metrics,
+  caseStudyHref,
   externalLinks = []
 } = Astro.props;
 ---
 
 <article class="project-card">
   <div class="project-image">
-    <img
-      src={image}
-      alt={imageAlt}
-      loading="lazy"
-    />
+    <img src={image} alt={imageAlt} loading="lazy" />
   </div>
 
   <div class="project-content">
-    <p class="project-eyebrow">
-      {eyebrow}
-    </p>
+    <p class="project-eyebrow">{eyebrow}</p>
+    <h3>{title}</h3>
+    <p class="project-description">{description}</p>
+    <p class="project-tools">{tools}</p>
 
-    <h3>
-      {title}
-    </h3>
-
-    <p class="project-description">
-      {description}
-    </p>
-
-    <p class="project-tools">
-      {tools}
-    </p>
-
-    <div
-      class="project-metrics"
-      aria-label={`${title} project highlights`}
-    >
+    <div class="project-metrics" aria-label={`${title} project highlights`}>
       {
         metrics.map((metric) => (
           <div class="metric">
@@ -72,22 +56,29 @@ const {
       }
     </div>
 
-    {
-      externalLinks.length > 0 && (
-        <div class="project-links">
-          {externalLinks.map((link) => (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.label}
-              <span aria-hidden="true">&nearr;</span>
-            </a>
-          ))}
-        </div>
-      )
-    }
+    <div class="project-links">
+      {
+        caseStudyHref && (
+          <a class="case-link" href={caseStudyHref}>
+            View Case Study
+            <span aria-hidden="true">→</span>
+          </a>
+        )
+      }
+
+      {
+        externalLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.label}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </article>
 
@@ -109,7 +100,7 @@ const {
   .project-card:hover {
     transform: translateY(-3px);
     border-color: #c8d2d9;
-    box-shadow: 0 14px 32px rgba(20, 32, 43, 0.06);
+    box-shadow: var(--shadow-soft);
   }
 
   .project-image {
@@ -171,7 +162,6 @@ const {
   .project-metrics {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
     margin-top: 24px;
     padding: 20px 0;
     border-top: 1px solid var(--color-border);
@@ -194,7 +184,6 @@ const {
   }
 
   .metric strong {
-    color: var(--color-text);
     font-size: 1.05rem;
     line-height: 1.2;
   }
@@ -209,7 +198,7 @@ const {
   .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 22px;
+    gap: 18px;
     margin-top: auto;
     padding-top: 22px;
   }
@@ -224,15 +213,13 @@ const {
     text-decoration: none;
   }
 
+  .project-links .case-link {
+    color: var(--color-text);
+  }
+
   .project-links a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
-  }
-
-  .project-links a:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-    border-radius: 3px;
   }
 
   @media (max-width: 600px) {
@@ -250,7 +237,6 @@ const {
 
     .project-metrics {
       grid-template-columns: 1fr;
-      gap: 14px;
     }
 
     .metric {
@@ -259,6 +245,7 @@ const {
 
     .metric + .metric {
       padding: 14px 0 0;
+      margin-top: 14px;
       border-top: 1px solid var(--color-border);
       border-left: 0;
     }

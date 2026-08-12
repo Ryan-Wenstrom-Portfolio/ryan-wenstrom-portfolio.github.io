@@ -1,0 +1,143 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="Mortgage Approval Analytics"
+  eyebrow="LARGE-SCALE MORTGAGE ANALYTICS"
+  description="Turning millions of public mortgage records into a validated analytical dataset and an accessible interactive reporting experience."
+  heroImage="/images/projects/mortgage-market-overview.png"
+  heroAlt="Mortgage Market Overview Tableau dashboard"
+  tools="Python · DuckDB · SQL · Tableau"
+  metrics={[
+    { value: '3.8M', label: 'raw HMDA records' },
+    { value: '2.58M', label: 'completed lender decisions' },
+    { value: '4', label: 'states' },
+    { value: '3', label: 'Tableau dashboards' }
+  ]}
+  links={[
+    {
+      label: 'Open Tableau',
+      href: 'https://public.tableau.com/views/MortgageApprovalAnalytics2017HMDA/MortgageMarketOverview?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link'
+    },
+    {
+      label: 'View GitHub',
+      href: 'https://github.com/Ryan-Wenstrom-Portfolio/mortgage-approval-analytics'
+    }
+  ]}
+>
+  <section class="case-section">
+    <h2>Problem</h2>
+    <div class="stack">
+      <p>
+        Public HMDA data is rich but difficult to use at scale. The project
+        focused on turning a large multi-state source into a consistent
+        analytical table that could support clear descriptive comparisons
+        across states, loan purposes, property types, income, and reported
+        applicant characteristics.
+      </p>
+      <p>
+        The goal was not to build a lending-risk model or make causal claims.
+        It was to create a trustworthy, reproducible descriptive workflow and
+        a reporting layer a nontechnical user could explore.
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>What I built</h2>
+    <div class="two-col">
+      <div class="detail-card">
+        <h3>Validated analytical pipeline</h3>
+        <p>
+          Loaded California, Illinois, Michigan, and Texas records, standardized
+          source fields, checked row and state totals, built the completed
+          decision population, and exported an analysis-ready dataset.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Recruiter-friendly reporting layer</h3>
+        <p>
+          Published three Tableau dashboards covering market overview,
+          property/income patterns, and reported applicant characteristics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Pipeline</h2>
+    <div class="pipeline">
+      <div class="pipeline-step"><span>01</span><strong>Raw HMDA files</strong></div>
+      <div class="pipeline-step"><span>02</span><strong>Schema + row validation</strong></div>
+      <div class="pipeline-step"><span>03</span><strong>DuckDB / SQL transformation</strong></div>
+      <div class="pipeline-step"><span>04</span><strong>Completed-decision table</strong></div>
+      <div class="pipeline-step"><span>05</span><strong>Analysis + QA checks</strong></div>
+      <div class="pipeline-step"><span>06</span><strong>Tableau-ready export</strong></div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Selected findings</h2>
+    <div class="finding-grid">
+      <div class="finding">
+        <strong>79.62%</strong>
+        <span>Overall favorable outcome rate in the completed-decision analytical population.</span>
+      </div>
+      <div class="finding">
+        <strong>80.45% vs. 78.10%</strong>
+        <span>California and Texas favorable rates in the four-state comparison.</span>
+      </div>
+      <div class="finding">
+        <strong>86.42%</strong>
+        <span>Purchase-loan favorable rate, compared with 74.76% for refinance.</span>
+      </div>
+      <div class="finding">
+        <strong>64.83%</strong>
+        <span>Home-improvement favorable rate, lower than purchase and refinance in this descriptive sample.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Additional views</h2>
+    <div class="stack">
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/mortgage-property-income.png"
+          alt="Property and income patterns dashboard"
+          loading="lazy"
+        />
+        <figcaption>
+          Property and income patterns: descriptive comparisons across property
+          types, loan amounts, and applicant income.
+        </figcaption>
+      </figure>
+
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/mortgage-applicant-characteristics.png"
+          alt="Reported applicant characteristics dashboard"
+          loading="lazy"
+        />
+        <figcaption>
+          Reported applicant characteristics: descriptive patterns by reported
+          race, ethnicity, and sex.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Responsible interpretation</h2>
+    <div class="note">
+      <p>
+        This project is descriptive. Differences in observed approval outcomes
+        do not establish discrimination, causality, applicant risk, or lender
+        intent. The analysis is not a fair-lending determination and is not a
+        predictive credit model.
+      </p>
+    </div>
+  </section>
+</ProjectLayout>

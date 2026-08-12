@@ -1,0 +1,534 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Metric {
+  value: string;
+  label: string;
+}
+
+interface LinkItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  eyebrow: string;
+  description: string;
+  heroImage: string;
+  heroAlt: string;
+  tools: string;
+  metrics: Metric[];
+  links: LinkItem[];
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  heroImage,
+  heroAlt,
+  tools,
+  metrics,
+  links
+} = Astro.props;
+---
+
+<BaseLayout
+  title={`${title} | Ryan Wenstrom`}
+  description={description}
+  image={heroImage}
+>
+  <SiteHeader />
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <a class="back-link" href="/#projects">← Selected Work</a>
+        <p class="case-eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        <p class="case-dek">{description}</p>
+
+        <div class="case-actions">
+          {
+            links.map((link, index) => (
+              <a
+                class:list={['case-button', { primary: index === 0 }]}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))
+          }
+        </div>
+
+        <p class="tools">{tools}</p>
+      </div>
+    </section>
+
+    <section class="case-visual">
+      <div class="container">
+        <div class="image-frame">
+          <img src={heroImage} alt={heroAlt} />
+        </div>
+      </div>
+    </section>
+
+    <section class="metric-section">
+      <div class="container metric-grid">
+        {
+          metrics.map((metric) => (
+            <div class="metric">
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <article class="case-body">
+      <div class="container">
+        <slot />
+      </div>
+    </article>
+
+    <section class="case-close">
+      <div class="container close-grid">
+        <div>
+          <p class="close-eyebrow">EXPLORE MORE</p>
+          <h2>See the implementation and supporting evidence.</h2>
+        </div>
+
+        <div class="close-links">
+          {
+            links.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label} ↗
+              </a>
+            ))
+          }
+          <a href="/#projects">Back to all projects →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .case-hero {
+    padding: 88px 0 68px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 42px;
+    color: var(--color-text-muted);
+    font-size: 0.84rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .case-eyebrow {
+    margin: 0 0 14px;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+  }
+
+  h1 {
+    max-width: 1000px;
+    margin: 0;
+    font-size: clamp(3.1rem, 6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .case-dek {
+    max-width: 850px;
+    margin: 26px 0 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.65;
+  }
+
+  .case-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .case-button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 17px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.86rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .case-button.primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .tools {
+    margin: 24px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.86rem;
+    font-weight: 650;
+  }
+
+  .case-visual {
+    padding-bottom: 28px;
+  }
+
+  .image-frame {
+    padding: 18px;
+    background: #eef2f4;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+
+  .image-frame img {
+    width: 100%;
+    max-height: 720px;
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  .metric-section {
+    padding: 0 0 72px;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .metric {
+    padding: 25px 24px 25px 0;
+  }
+
+  .metric + .metric {
+    padding-left: 24px;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .metric strong,
+  .metric span {
+    display: block;
+  }
+
+  .metric strong {
+    font-size: 1.25rem;
+  }
+
+  .metric span {
+    margin-top: 5px;
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+  }
+
+  .case-body {
+    padding-bottom: 104px;
+  }
+
+  :global(.case-section) {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
+    gap: 70px;
+    padding: 58px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  :global(.case-section h2) {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  :global(.case-section h3) {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  :global(.case-section p) {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.78;
+  }
+
+  :global(.case-section p + p) {
+    margin-top: 18px;
+  }
+
+  :global(.stack) {
+    display: grid;
+    gap: 22px;
+  }
+
+  :global(.two-col) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  :global(.detail-card) {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+  }
+
+  :global(.detail-card p) {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  :global(.pipeline) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  :global(.pipeline-step) {
+    min-height: 112px;
+    padding: 18px;
+    background: var(--color-accent-soft);
+    border: 1px solid #d7e8ed;
+    border-radius: 9px;
+  }
+
+  :global(.pipeline-step span) {
+    display: block;
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+  }
+
+  :global(.pipeline-step strong) {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+
+  :global(.finding-grid) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  :global(.finding) {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+  }
+
+  :global(.finding strong) {
+    display: block;
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  :global(.finding span) {
+    display: block;
+    margin-top: 7px;
+    color: var(--color-text-muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  :global(.supporting-visual) {
+    margin-top: 24px;
+    padding: 12px;
+    background: #eef2f4;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+  }
+
+  :global(.supporting-visual img) {
+    width: 100%;
+    max-height: 680px;
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  :global(.supporting-visual figcaption) {
+    padding: 10px 4px 2px;
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  :global(.note) {
+    padding: 22px;
+    background: var(--color-accent-soft);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+  }
+
+  :global(.note p) {
+    color: #385262;
+  }
+
+  :global(.inline-link) {
+    color: var(--color-accent-dark);
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  :global(.inline-link:hover) {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .case-close {
+    padding: 76px 0;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .close-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .close-eyebrow {
+    margin: 0 0 10px;
+    color: var(--color-accent);
+    font-size: 0.74rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+  }
+
+  .close-grid h2 {
+    max-width: 700px;
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .close-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .close-links a {
+    color: var(--color-accent-dark);
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @media (max-width: 850px) {
+    .metric-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric:nth-child(3) {
+      border-left: 0;
+      border-top: 1px solid var(--color-border);
+      padding-left: 0;
+    }
+
+    .metric:nth-child(4) {
+      border-top: 1px solid var(--color-border);
+    }
+
+    :global(.case-section) {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+
+    :global(.pipeline) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .close-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .close-links {
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .case-hero {
+      padding: 62px 0 50px;
+    }
+
+    .back-link {
+      margin-bottom: 30px;
+    }
+
+    .image-frame {
+      padding: 8px;
+    }
+
+    .metric-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metric,
+    .metric + .metric,
+    .metric:nth-child(3),
+    .metric:nth-child(4) {
+      padding: 16px 0;
+      border-left: 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .metric:first-child {
+      border-top: 0;
+    }
+
+    :global(.case-section) {
+      padding: 42px 0;
+    }
+
+    :global(.two-col),
+    :global(.pipeline),
+    :global(.finding-grid) {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

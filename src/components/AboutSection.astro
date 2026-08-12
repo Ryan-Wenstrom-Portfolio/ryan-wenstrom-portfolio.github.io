@@ -1,0 +1,156 @@
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy">
+        <p class="section-eyebrow">ABOUT</p>
+        <h2>Business context first. Technical execution behind it.</h2>
+
+        <p>
+          I started in finance and real estate, where evaluating investments
+          meant working through forecasts, assumptions, market information, and
+          imperfect data. Experience across real estate investment,
+          financial-services analytics, and property credit showed me that
+          strong decisions depend not only on the analysis itself, but also on
+          whether the underlying data is structured, validated, and
+          communicated clearly.
+        </p>
+
+        <p>
+          I am now completing the Master of Information and Data Science
+          program at UC Berkeley, building on that business foundation through
+          Python, SQL, data engineering, visualization, and analytical product
+          development. My portfolio reflects that combination: understand the
+          question, build the analytical system needed to investigate it, and
+          communicate the result clearly enough for others to use.
+        </p>
+      </div>
+
+      <aside class="education" aria-label="Education">
+        <p class="section-eyebrow">EDUCATION</p>
+
+        <article class="education-item">
+          <p class="school">UC Berkeley</p>
+          <h3>Master of Information and Data Science</h3>
+          <p>Expected Dec 2026 · GPA 4.0</p>
+        </article>
+
+        <article class="education-item">
+          <p class="school">Cal Poly San Luis Obispo</p>
+          <h3>B.S. Business Administration · Finance</h3>
+          <p>
+            Minor in Real Property Development · Jun 2025 · GPA 3.91 ·
+            Summa Cum Laude
+          </p>
+        </article>
+
+        <div class="credential">
+          <span>Selected credential</span>
+          <strong>Lean Six Sigma Green Belt</strong>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 118px 0 126px;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.8fr);
+    gap: 88px;
+  }
+
+  .about-copy h2 {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(2.35rem, 4vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+  }
+
+  .about-copy > p:not(.section-eyebrow) {
+    max-width: 820px;
+    margin: 24px 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  .education {
+    padding-left: 36px;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .education-item {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .education-item:first-of-type {
+    padding-top: 6px;
+  }
+
+  .school {
+    margin: 0 0 7px;
+    color: var(--color-accent);
+    font-size: 0.76rem;
+    font-weight: 750;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .education-item h3 {
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  .education-item > p:last-child {
+    margin: 8px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .credential {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 22px;
+  }
+
+  .credential span {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+  }
+
+  .credential strong {
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 54px;
+    }
+
+    .education {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px solid var(--color-border);
+      padding-top: 34px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .about-section {
+      padding: 82px 0 92px;
+    }
+  }
+</style>

@@ -1,0 +1,150 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="Neo4j Stock Network Analysis"
+  eyebrow="GRAPH ANALYTICS"
+  description="Representing historical stock-return relationships as a graph and testing whether sophisticated centrality measures materially change what simpler network measures reveal."
+  heroImage="/images/projects/neo4j-correlation-network.png"
+  heroAlt="NASDAQ stock correlation network with connected and isolated stocks"
+  tools="Neo4j · Cypher · Graph Data Science · Python"
+  metrics={[
+    { value: '85', label: 'stocks' },
+    { value: '197', label: 'relationships at 0.55' },
+    { value: '39', label: 'isolated stocks' },
+    { value: '4', label: 'thresholds tested' }
+  ]}
+  links={[
+    {
+      label: 'Interactive Network',
+      href: '/interactive/neo4j-stock-network.html'
+    },
+    {
+      label: 'View GitHub',
+      href: 'https://github.com/Ryan-Wenstrom-Portfolio/neo4j-stock-network-analysis'
+    }
+  ]}
+>
+  <section class="case-section">
+    <h2>Problem</h2>
+    <div class="stack">
+      <p>
+        A correlation matrix can show pairwise relationships, but it is harder
+        to reason about structural roles, connected components, central stocks,
+        and isolated stocks from a table alone.
+      </p>
+      <p>
+        This project turns historical return correlations into a graph,
+        compares degree and PageRank-based centrality, and tests how much the
+        conclusions depend on the correlation threshold used to construct the
+        network.
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Graph construction</h2>
+    <div class="pipeline">
+      <div class="pipeline-step"><span>01</span><strong>Adjusted close prices</strong></div>
+      <div class="pipeline-step"><span>02</span><strong>Coverage filtering</strong></div>
+      <div class="pipeline-step"><span>03</span><strong>Daily log returns</strong></div>
+      <div class="pipeline-step"><span>04</span><strong>Pearson correlations</strong></div>
+      <div class="pipeline-step"><span>05</span><strong>Neo4j network</strong></div>
+      <div class="pipeline-step"><span>06</span><strong>GDS centrality + sensitivity</strong></div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Main result</h2>
+    <div class="finding-grid">
+      <div class="finding">
+        <strong>0.971</strong>
+        <span>Correlation between degree and unweighted PageRank.</span>
+      </div>
+      <div class="finding">
+        <strong>0.970</strong>
+        <span>Correlation between degree and weighted PageRank.</span>
+      </div>
+      <div class="finding">
+        <strong>0.999</strong>
+        <span>Correlation between weighted and unweighted PageRank.</span>
+      </div>
+      <div class="finding">
+        <strong>46-stock core</strong>
+        <span>Connected core at the selected 0.55 correlation threshold.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Centrality comparison</h2>
+    <div class="stack">
+      <p>
+        In this constructed network, PageRank adds limited incremental
+        information beyond simple connectivity. The result is analytically
+        useful because it shows when a more sophisticated graph measure
+        confirms, rather than overturns, a simpler structural measure.
+      </p>
+
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/neo4j-degree-vs-pagerank.png"
+          alt="Degree versus PageRank comparison chart"
+          loading="lazy"
+        />
+        <figcaption>
+          Degree and weighted PageRank move closely together in the selected
+          network.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Threshold sensitivity</h2>
+    <div class="stack">
+      <div class="finding-grid">
+        <div class="finding"><strong>0.50</strong><span>430 edges · 27 isolates</span></div>
+        <div class="finding"><strong>0.55</strong><span>197 edges · 39 isolates</span></div>
+        <div class="finding"><strong>0.60</strong><span>98 edges · 49 isolates</span></div>
+        <div class="finding"><strong>0.65</strong><span>42 edges · 58 isolates</span></div>
+      </div>
+
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/neo4j-threshold-sensitivity.png"
+          alt="Neo4j network threshold sensitivity chart"
+          loading="lazy"
+        />
+        <figcaption>
+          Network density and isolation change materially as the correlation
+          threshold becomes more restrictive.
+        </figcaption>
+      </figure>
+
+      <p>
+        <a
+          class="inline-link"
+          href="/interactive/neo4j-stock-network.html"
+          target="_blank"
+        >
+          Open the interactive network →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Limitations</h2>
+    <div class="note">
+      <p>
+        Historical return correlation is not causality, investment quality, or
+        a prediction of future co-movement. Network structure is conditional on
+        the selected construction threshold, so centrality conclusions should
+        be interpreted as properties of this historical graph rather than
+        trading signals.
+      </p>
+    </div>
+  </section>
+</ProjectLayout>

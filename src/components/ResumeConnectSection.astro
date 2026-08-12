@@ -1,0 +1,148 @@
+<section class="resume-section" id="resume">
+  <div class="container resume-grid">
+    <div>
+      <p class="resume-eyebrow">RESUME &amp; CONNECT</p>
+      <h2>Explore the work behind the projects.</h2>
+      <p>
+        The analytics/data resume is the primary version for this portfolio.
+        A finance-focused version is also available.
+      </p>
+    </div>
+
+    <div class="resume-actions">
+      <a
+        class="button primary"
+        href="/resumes/Ryan_Wenstrom_Analytics_Resume.pdf"
+        target="_blank"
+      >
+        Analytics / Data Resume
+      </a>
+
+      <a
+        class="button secondary"
+        href="/resumes/Ryan_Wenstrom_Finance_Resume.pdf"
+        target="_blank"
+      >
+        Finance Resume
+      </a>
+
+      <div class="connect-links">
+        <a
+          href="https://www.linkedin.com/in/ryanwenstrom/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href="https://github.com/Ryan-Wenstrom-Portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+        <a href="mailto:ryanmwenstrom@gmail.com">
+          ryanmwenstrom@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .resume-section {
+    padding: 92px 0;
+    background: var(--color-dark);
+    color: #ffffff;
+  }
+
+  .resume-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.7fr);
+    gap: 80px;
+    align-items: center;
+  }
+
+  .resume-eyebrow {
+    margin: 0 0 15px;
+    color: #8fd0e2;
+    font-size: 0.76rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 740px;
+    font-size: clamp(2.35rem, 4vw, 3.35rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .resume-grid > div:first-child > p:last-child {
+    max-width: 650px;
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .resume-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button {
+    display: inline-flex;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .primary {
+    background: #ffffff;
+    color: var(--color-dark);
+  }
+
+  .secondary {
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+  }
+
+  .connect-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    margin-top: 22px;
+  }
+
+  .connect-links a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.82rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .connect-links a:hover {
+    color: #ffffff;
+  }
+
+  @media (max-width: 850px) {
+    .resume-grid {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
+
+    .resume-actions {
+      max-width: 520px;
+    }
+  }
+</style>

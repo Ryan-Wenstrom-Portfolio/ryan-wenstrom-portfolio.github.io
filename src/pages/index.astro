@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
 import AthleticsSection from '../components/AthleticsSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ResumeConnectSection from '../components/ResumeConnectSection.astro';
 ---
 
 <BaseLayout
@@ -13,13 +16,9 @@ import AthleticsSection from '../components/AthleticsSection.astro';
   <SiteHeader />
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow">
-          DATA &amp; ANALYTICS PORTFOLIO
-        </p>
-
+        <p class="eyebrow">DATA &amp; ANALYTICS PORTFOLIO</p>
         <h1>Ryan Wenstrom</h1>
 
         <p class="positioning">
@@ -33,25 +32,20 @@ import AthleticsSection from '../components/AthleticsSection.astro';
         </p>
 
         <div class="hero-actions">
-          <a
-            class="button button-primary"
-            href="#projects"
-          >
+          <a class="button button-primary" href="#projects">
             View Projects
           </a>
 
           <a
             class="button button-secondary"
-            href="#resume"
+            href="/resumes/Ryan_Wenstrom_Analytics_Resume.pdf"
+            target="_blank"
           >
             Resume
           </a>
         </div>
 
-        <div
-          class="hero-links"
-          aria-label="Professional links"
-        >
+        <div class="hero-links" aria-label="Professional links">
           <a
             href="https://github.com/Ryan-Wenstrom-Portfolio"
             target="_blank"
@@ -60,9 +54,7 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             GitHub
           </a>
 
-          <span aria-hidden="true">
-            &middot;
-          </span>
+          <span aria-hidden="true">&middot;</span>
 
           <a
             href="https://www.linkedin.com/in/ryanwenstrom/"
@@ -72,56 +64,33 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             LinkedIn
           </a>
 
-          <span aria-hidden="true">
-            &middot;
-          </span>
+          <span aria-hidden="true">&middot;</span>
 
           <a href="mailto:ryanmwenstrom@gmail.com">
             ryanmwenstrom@gmail.com
           </a>
         </div>
 
-        <div
-          class="credibility"
-          aria-label="Background highlights"
-        >
+        <div class="credibility" aria-label="Background highlights">
           <span>UC Berkeley MIDS</span>
-
-          <span
-            class="divider"
-            aria-hidden="true"
-          ></span>
-
+          <span class="divider" aria-hidden="true"></span>
           <span>Cal Poly Finance</span>
-
-          <span
-            class="divider"
-            aria-hidden="true"
-          ></span>
-
+          <span class="divider" aria-hidden="true"></span>
           <span>Analytics + Finance</span>
         </div>
       </div>
     </section>
 
-    <!-- SELECTED WORK -->
-    <section
-      class="projects-section"
-      id="projects"
-    >
+    <section class="projects-section" id="projects">
       <div class="container">
         <div class="section-heading">
-          <p class="section-eyebrow">
-            SELECTED WORK
-          </p>
+          <p class="section-eyebrow">SELECTED WORK</p>
 
-          <h2>
-            Four projects. Four different analytical problems.
-          </h2>
+          <h2>Four projects. Four different analytical problems.</h2>
 
           <p>
             Large-scale data processing, relational analytics and data
-            engineering, interactive visualization, and graph analysis - all
+            engineering, interactive visualization, and graph analysis — all
             focused on turning difficult data into something understandable and
             useful.
           </p>
@@ -135,19 +104,11 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             image="/images/projects/mortgage-market-overview.png"
             imageAlt="Mortgage Market Overview dashboard showing mortgage approval analytics across four U.S. states"
             tools="Python · DuckDB · SQL · Tableau"
+            caseStudyHref="/projects/mortgage-approval-analytics/"
             metrics={[
-              {
-                value: '3.8M',
-                label: 'raw records'
-              },
-              {
-                value: '4',
-                label: 'states analyzed'
-              },
-              {
-                value: '3',
-                label: 'dashboards'
-              }
+              { value: '3.8M', label: 'raw records' },
+              { value: '4', label: 'states analyzed' },
+              { value: '3', label: 'dashboards' }
             ]}
             externalLinks={[
               {
@@ -168,19 +129,11 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             image="/images/projects/sql-retail-performance.png"
             imageAlt="Retail Performance Analytics dashboard showing revenue, store performance, product demand, and time-based retail trends"
             tools="PostgreSQL · SQL · Python · Tableau"
+            caseStudyHref="/projects/sql-analytics/"
             metrics={[
-              {
-                value: '1.54M',
-                label: 'transactions'
-              },
-              {
-                value: '$98.7M',
-                label: 'revenue analyzed'
-              },
-              {
-                value: '2',
-                label: 'case studies'
-              }
+              { value: '1.54M', label: 'transactions' },
+              { value: '$98.7M', label: 'revenue analyzed' },
+              { value: '2', label: 'case studies' }
             ]}
             externalLinks={[
               {
@@ -199,21 +152,13 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             title="NBA Player Role Analytics"
             description="Co-developed an interactive D3 application for comparing player roles, historical similarity, roster composition, and team context beyond traditional box-score summaries."
             image="/images/projects/nba-role-explorer.png"
-            imageAlt="NBA Player Role Analytics application comparing Jrue Holiday and James Harden across player-role metrics"
+            imageAlt="NBA Player Role Analytics application comparing Jrue Holiday and James Harden"
             tools="Python · D3.js · JavaScript · pandas"
+            caseStudyHref="/projects/nba-player-role-analytics/"
             metrics={[
-              {
-                value: '5,665',
-                label: 'player-team-seasons'
-              },
-              {
-                value: '16',
-                label: 'NBA seasons'
-              },
-              {
-                value: '480',
-                label: 'team-seasons'
-              }
+              { value: '5,665', label: 'player-team-seasons' },
+              { value: '16', label: 'NBA seasons' },
+              { value: '480', label: 'team-seasons' }
             ]}
             externalLinks={[
               {
@@ -232,25 +177,17 @@ import AthleticsSection from '../components/AthleticsSection.astro';
             title="Neo4j Stock Network Analysis"
             description="Modeled historical stock-return correlations as a Neo4j network and tested how centrality conclusions change across methods and network-construction thresholds."
             image="/images/projects/neo4j-correlation-network.png"
-            imageAlt="NASDAQ stock correlation network showing connected and isolated stocks in the Neo4j graph analysis"
+            imageAlt="NASDAQ stock correlation network showing connected and isolated stocks"
             tools="Neo4j · Cypher · GDS · Python"
+            caseStudyHref="/projects/neo4j-stock-network-analysis/"
             metrics={[
-              {
-                value: '85',
-                label: 'stocks'
-              },
-              {
-                value: '197',
-                label: 'relationships'
-              },
-              {
-                value: '4',
-                label: 'thresholds tested'
-              }
+              { value: '85', label: 'stocks' },
+              { value: '197', label: 'relationships' },
+              { value: '4', label: 'thresholds tested' }
             ]}
             externalLinks={[
               {
-                label: 'Open Interactive Network',
+                label: 'Interactive Network',
                 href: '/interactive/neo4j-stock-network.html'
               },
               {
@@ -263,18 +200,11 @@ import AthleticsSection from '../components/AthleticsSection.astro';
       </div>
     </section>
 
-    <!-- CAPABILITIES -->
     <section class="capabilities-section">
       <div class="container">
         <div class="capabilities-heading">
-          <p class="section-eyebrow">
-            CAPABILITIES
-          </p>
-
-          <h2>
-            From raw data to useful decisions.
-          </h2>
-
+          <p class="section-eyebrow">CAPABILITIES</p>
+          <h2>From raw data to useful decisions.</h2>
           <p>
             My work sits at the intersection of data, analytical reasoning,
             business context, and communication.
@@ -283,14 +213,8 @@ import AthleticsSection from '../components/AthleticsSection.astro';
 
         <div class="capabilities-grid">
           <article class="capability">
-            <p class="capability-number">
-              01
-            </p>
-
-            <h3>
-              Build reliable data
-            </h3>
-
+            <p class="capability-number">01</p>
+            <h3>Build reliable data</h3>
             <p>
               Transform, validate, reconcile, and structure raw or external
               data into trustworthy analytical datasets.
@@ -298,14 +222,8 @@ import AthleticsSection from '../components/AthleticsSection.astro';
           </article>
 
           <article class="capability">
-            <p class="capability-number">
-              02
-            </p>
-
-            <h3>
-              Analyze business performance
-            </h3>
-
+            <p class="capability-number">02</p>
+            <h3>Analyze business performance</h3>
             <p>
               Use SQL, Python, and business context to identify patterns,
               compare performance, and answer decision-relevant questions.
@@ -313,14 +231,8 @@ import AthleticsSection from '../components/AthleticsSection.astro';
           </article>
 
           <article class="capability">
-            <p class="capability-number">
-              03
-            </p>
-
-            <h3>
-              Build interactive analytics
-            </h3>
-
+            <p class="capability-number">03</p>
+            <h3>Build interactive analytics</h3>
             <p>
               Turn analytical results into dashboards and interactive
               applications that make complex information easier to explore.
@@ -328,14 +240,8 @@ import AthleticsSection from '../components/AthleticsSection.astro';
           </article>
 
           <article class="capability">
-            <p class="capability-number">
-              04
-            </p>
-
-            <h3>
-              Model complex relationships
-            </h3>
-
+            <p class="capability-number">04</p>
+            <h3>Model complex relationships</h3>
             <p>
               Use graph structures and network analysis to investigate
               relationships that are difficult to understand in traditional
@@ -346,12 +252,13 @@ import AthleticsSection from '../components/AthleticsSection.astro';
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <ExperienceSection />
-
-    <!-- LEADERSHIP & ATHLETICS -->
     <AthleticsSection />
+    <AboutSection />
+    <ResumeConnectSection />
   </main>
+
+  <SiteFooter />
 </BaseLayout>
 
 <style>
@@ -428,8 +335,7 @@ import AthleticsSection from '../components/AthleticsSection.astro';
     color: #ffffff;
   }
 
-  .button-primary:hover,
-  .button-primary:focus-visible {
+  .button-primary:hover {
     background: var(--color-accent-dark);
   }
 
@@ -437,11 +343,6 @@ import AthleticsSection from '../components/AthleticsSection.astro';
     background: var(--color-surface);
     border-color: var(--color-border);
     color: var(--color-text);
-  }
-
-  .button-secondary:hover,
-  .button-secondary:focus-visible {
-    border-color: #b8c4cc;
   }
 
   .hero-links {
@@ -458,8 +359,7 @@ import AthleticsSection from '../components/AthleticsSection.astro';
     text-decoration: none;
   }
 
-  .hero-links a:hover,
-  .hero-links a:focus-visible {
+  .hero-links a:hover {
     color: var(--color-accent-dark);
   }
 
@@ -481,14 +381,6 @@ import AthleticsSection from '../components/AthleticsSection.astro';
     width: 1px;
     height: 14px;
     background: var(--color-border);
-  }
-
-  .section-eyebrow {
-    margin: 0 0 14px;
-    color: var(--color-accent);
-    font-size: 0.78rem;
-    font-weight: 750;
-    letter-spacing: 0.11em;
   }
 
   .projects-section {
@@ -531,9 +423,7 @@ import AthleticsSection from '../components/AthleticsSection.astro';
 
   .capabilities-heading {
     display: grid;
-    grid-template-columns:
-      minmax(0, 1.05fr)
-      minmax(280px, 0.65fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
     column-gap: 80px;
     align-items: end;
     margin-bottom: 62px;
@@ -605,10 +495,6 @@ import AthleticsSection from '../components/AthleticsSection.astro';
       row-gap: 20px;
     }
 
-    .capabilities-heading > p:last-child {
-      max-width: 700px;
-    }
-
     .capabilities-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -617,13 +503,10 @@ import AthleticsSection from '../components/AthleticsSection.astro';
       padding: 30px;
     }
 
-    .capability + .capability {
-      padding-left: 30px;
-    }
-
     .capability:nth-child(3) {
-      border-left: 0;
+      padding-left: 30px;
       border-top: 1px solid var(--color-border);
+      border-left: 0;
     }
 
     .capability:nth-child(4) {
@@ -638,10 +521,6 @@ import AthleticsSection from '../components/AthleticsSection.astro';
 
     .project-grid {
       grid-template-columns: 1fr;
-    }
-
-    .section-heading {
-      margin-bottom: 36px;
     }
 
     .capabilities-section {
@@ -670,14 +549,6 @@ import AthleticsSection from '../components/AthleticsSection.astro';
       margin-top: 24px;
       font-size: 1rem;
     }
-
-    .hero-actions {
-      margin-top: 30px;
-    }
-
-    .credibility {
-      margin-top: 44px;
-    }
   }
 
   @media (max-width: 620px) {
@@ -686,17 +557,14 @@ import AthleticsSection from '../components/AthleticsSection.astro';
     }
 
     .capability,
-    .capability + .capability {
+    .capability + .capability,
+    .capability:nth-child(3) {
       padding: 28px 0;
       border-left: 0;
     }
 
     .capability + .capability {
       border-top: 1px solid var(--color-border);
-    }
-
-    .capability h3 {
-      max-width: none;
     }
   }
 

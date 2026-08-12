@@ -1,0 +1,134 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="SQL Analytics & Data Engineering"
+  eyebrow="POSTGRESQL CASE STUDIES"
+  description="Two PostgreSQL case studies showing both sides of analytical work: extracting business insight from relational data and preparing external data so it can be trusted downstream."
+  heroImage="/images/projects/sql-retail-performance.png"
+  heroAlt="Retail Performance Analytics Tableau dashboard"
+  tools="PostgreSQL · SQL · Python · Tableau"
+  metrics={[
+    { value: '1.54M', label: 'retail transactions' },
+    { value: '$98.7M', label: 'revenue analyzed' },
+    { value: '97', label: 'partner transactions staged' },
+    { value: '84', label: 'exact customer matches' }
+  ]}
+  links={[
+    {
+      label: 'Open Tableau',
+      href: 'https://public.tableau.com/app/profile/ryan.wenstrom2339/viz/SQLAnalyticsDataEngineering/RetailPerformanceAnalytics'
+    },
+    {
+      label: 'View GitHub',
+      href: 'https://github.com/Ryan-Wenstrom-Portfolio/sql_analytics'
+    }
+  ]}
+>
+  <section class="case-section">
+    <h2>Two analytical problems</h2>
+    <div class="two-col">
+      <div class="detail-card">
+        <h3>Retail performance</h3>
+        <p>
+          Use a relational PostgreSQL dataset to analyze store performance,
+          customer activity, product demand, and time-based trends across
+          1.54M transactions.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Partner-data pipeline</h3>
+        <p>
+          Convert nested external JSON into relational staging tables, validate
+          references and financial fields, reconcile customer identities, and
+          produce business-ready reporting outputs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Retail analysis</h2>
+    <div class="stack">
+      <p>
+        The retail case study analyzed $98.7M in revenue across five stores.
+        SQL was used for multi-table aggregation, customer coverage, product
+        concentration, store comparisons, monthly trends, and weekday
+        performance before the outputs were published in Tableau.
+      </p>
+
+      <div class="finding-grid">
+        <div class="finding">
+          <strong>$98.7M</strong>
+          <span>Total revenue analyzed across the retail dataset.</span>
+        </div>
+        <div class="finding">
+          <strong>1.54M</strong>
+          <span>Transactions included in the relational analysis.</span>
+        </div>
+        <div class="finding">
+          <strong>58.3%</strong>
+          <span>Share of unit volume represented by the three highest-volume products.</span>
+        </div>
+        <div class="finding">
+          <strong>5 stores</strong>
+          <span>Store-level performance compared in the reporting layer.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Partner-data pipeline</h2>
+    <div class="pipeline">
+      <div class="pipeline-step"><span>01</span><strong>Nested JSON input</strong></div>
+      <div class="pipeline-step"><span>02</span><strong>Python transformation</strong></div>
+      <div class="pipeline-step"><span>03</span><strong>PostgreSQL staging</strong></div>
+      <div class="pipeline-step"><span>04</span><strong>Reference + financial validation</strong></div>
+      <div class="pipeline-step"><span>05</span><strong>Exact customer reconciliation</strong></div>
+      <div class="pipeline-step"><span>06</span><strong>Aggregated reporting output</strong></div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Pipeline evidence</h2>
+    <div class="stack">
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/sql-partner-pipeline.png"
+          alt="Partner data pipeline Tableau dashboard"
+          loading="lazy"
+        />
+        <figcaption>
+          Partner pipeline reporting summarizing ingestion, matching,
+          validation, and financial outputs.
+        </figcaption>
+      </figure>
+
+      <div class="finding-grid">
+        <div class="finding">
+          <strong>86.6%</strong>
+          <span>84 of 97 partner transactions matched an existing customer exactly.</span>
+        </div>
+        <div class="finding">
+          <strong>13</strong>
+          <span>Transactions routed for review instead of being force-matched.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Limitations</h2>
+    <div class="note">
+      <p>
+        The partner workflow is batch-oriented rather than streaming. Customer
+        reconciliation uses exact matching, so unresolved records are routed
+        for review instead of being probabilistically assigned. Public
+        reporting uses aggregated outputs rather than private customer data.
+      </p>
+    </div>
+  </section>
+</ProjectLayout>

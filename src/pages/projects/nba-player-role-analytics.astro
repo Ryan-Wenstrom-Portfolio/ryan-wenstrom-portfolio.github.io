@@ -1,0 +1,136 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="NBA Player Role Analytics"
+  eyebrow="INTERACTIVE D3 ANALYTICS"
+  description="An interactive NBA analytics application for comparing statistical roles, historical player-season similarity, roster composition, and team context without reducing players to a single ranking."
+  heroImage="/images/projects/nba-role-explorer.png"
+  heroAlt="NBA Player Role Analytics Role Explorer comparing Jrue Holiday and James Harden"
+  tools="Python · pandas · D3.js · JavaScript · GitHub Pages"
+  metrics={[
+    { value: '5,665', label: 'eligible player-team-seasons' },
+    { value: '480', label: 'team-season records' },
+    { value: '16', label: 'NBA seasons' },
+    { value: 'Static', label: 'public GitHub Pages app' }
+  ]}
+  links={[
+    {
+      label: 'Open Live App',
+      href: 'https://ryan-wenstrom-portfolio.github.io/nba-player-role-analytics/'
+    },
+    {
+      label: 'View GitHub',
+      href: 'https://github.com/Ryan-Wenstrom-Portfolio/nba-player-role-analytics'
+    }
+  ]}
+>
+  <section class="case-section">
+    <h2>Problem</h2>
+    <div class="stack">
+      <p>
+        Traditional box-score summaries make it easy to compare points,
+        rebounds, and assists, but they often hide how players contribute in
+        different statistical roles and team contexts.
+      </p>
+      <p>
+        This project was designed to support comparison rather than declare a
+        single “best player.” It keeps player-season roles, historical
+        similarity, roster composition, and team winning as descriptive
+        context.
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>What the app does</h2>
+    <div class="two-col">
+      <div class="detail-card">
+        <h3>Role Explorer</h3>
+        <p>
+          Compare two player-seasons across scoring load, creation, role
+          breadth, efficiency, defensive-event production, historical
+          similarity, and team-win context.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Team Roster Lab</h3>
+        <p>
+          Inspect how a team-season distributes responsibility across its
+          rotation and compare different roster shapes rather than individual
+          stars alone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Data pipeline</h2>
+    <div class="pipeline">
+      <div class="pipeline-step"><span>01</span><strong>Player stats + salaries</strong></div>
+      <div class="pipeline-step"><span>02</span><strong>Game results</strong></div>
+      <div class="pipeline-step"><span>03</span><strong>Normalize IDs + eligibility</strong></div>
+      <div class="pipeline-step"><span>04</span><strong>Per-36 + role features</strong></div>
+      <div class="pipeline-step"><span>05</span><strong>Team-season context</strong></div>
+      <div class="pipeline-step"><span>06</span><strong>Static CSV / JSON app data</strong></div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Team context</h2>
+    <div class="stack">
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/nba-team-roster.png"
+          alt="NBA Team Roster Lab showing the 2024–25 Oklahoma City Thunder rotation"
+          loading="lazy"
+        />
+        <figcaption>
+          Team Roster Lab: role distribution across a selected team-season
+          rotation.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Contribution</h2>
+    <div class="note">
+      <p>
+        The original project was co-developed by Kenny Dolgin and Ryan
+        Wenstrom. Both contributed to design, framing, application development,
+        evaluation, and presentation. For the portfolio version, Ryan
+        restructured the repository, rebuilt the raw-to-app data pipeline,
+        validated eligibility and calculations, corrected team-season records,
+        regenerated application data, cleaned deployment, and expanded
+        methodology and recruiter-facing documentation.
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2>Responsible interpretation</h2>
+    <div class="stack">
+      <p>
+        Role breadth describes statistical profile, not overall player quality.
+        Historical similarity is not a ranking, and team win percentage is
+        descriptive context rather than proof that a player or role caused a
+        team to win.
+      </p>
+
+      <figure class="supporting-visual">
+        <img
+          src="/images/projects/nba-methodology.png"
+          alt="NBA Player Role Analytics About and Methodology page"
+          loading="lazy"
+        />
+        <figcaption>
+          The public app includes explicit methodology, audience, source, and
+          interpretation guidance.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</ProjectLayout>
