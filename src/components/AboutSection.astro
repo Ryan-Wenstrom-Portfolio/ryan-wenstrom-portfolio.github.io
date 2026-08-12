@@ -45,7 +45,17 @@
 
         <div class="credential">
           <span>Selected credential</span>
-          <strong>Lean Six Sigma Green Belt</strong>
+
+          <a
+            class="credential-link"
+            href="/images/credentials/lean-six-sigma-green-belt.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Lean Six Sigma Green Belt ↗
+          </a>
+
+          <span class="credential-meta">MoreSteam · Dec 2024</span>
         </div>
       </aside>
     </div>
@@ -125,13 +135,29 @@
     padding-top: 22px;
   }
 
-  .credential span {
+  .credential > span:first-child {
     color: var(--color-text-muted);
     font-size: 0.75rem;
   }
 
-  .credential strong {
+  .credential-link {
+    align-self: flex-start;
+    color: var(--color-text);
     font-size: 0.92rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .credential-link:hover,
+  .credential-link:focus-visible {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .credential-meta {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
   }
 
   @media (max-width: 900px) {
